@@ -1,15 +1,20 @@
 #!/usr/bin/env ruby
 
 B = 0...5
+N="NORTH"
+S="SOUTH"
+E="EAST"
+W="WEST"
+P="PLACE"
 
 puts (ARGF.read
   .split("\n")
   .map{ |l| l.split(/[ ,]/) }
-  .drop_while { |c| c.first != "PLACE" }
+  .drop_while { |c| c.first != P }
   .reduce({x: nil, y: nil, f: nil, out: []}) do |s, l|
   n, *a = l
   case n
-  when "PLACE"
+  when P
     x,y,f = a
     z = x.to_i
     t = y.to_i
@@ -17,26 +22,26 @@ puts (ARGF.read
     s.merge({x: z, y: t, f: f})
   when "LEFT"
     s[:f] = {
-      "NORTH" => "WEST",
-      "WEST"  => "SOUTH",
-      "SOUTH" => "EAST",
-      "EAST"  => "NORTH",
+      N => W,
+      W  => S,
+      S => E,
+      E  => N,
 }[s[:f]]
     s
   when "RIGHT"
     s[:f] = {
-      "NORTH" => "EAST",
-      "EAST"  => "SOUTH",
-      "SOUTH" => "WEST",
-      "WEST"  => "NORTH",
+      N => E,
+      E  => S,
+      S => W,
+      W  => N,
 }[s[:f]]
     s
   when "MOVE"
     z, t = {
-      "NORTH" => [+0, +1],
-      "SOUTH" => [+0, -1],
-      "EAST"  => [+1, +0],
-      "WEST"  => [-1, +0],
+      N => [+0, +1],
+      S => [+0, -1],
+      E  => [+1, +0],
+      W  => [-1, +0],
 }[s[:f]]
     c =s[:x] + z
     u = s[:y] + t
@@ -46,6 +51,6 @@ puts (ARGF.read
     s[:out] << [s[:x], s[:y], s[:f]].join(',')
     s
   else
-    fail "unknown command"
+    fail
   end
 end)[:out]
