@@ -10,7 +10,10 @@
     - [[https://en.wikipedia.org/wiki/Code_golf][Wikipedia]]
   #+end_quote
 
-  Have a look at [[blob/main/small.rb][small.rb]] to see the 632 character solution.
+  Have a look at [[small.rb][small.rb]] to see the 632 character solution. Check the commit
+  history on this repository to see how ~main.rb~ was transformed into
+  ~small.rb~ step by step. These transformations are just some obvious ones,
+  have a think about how else you could make your code smaller.
 
 ** Project structure
     
