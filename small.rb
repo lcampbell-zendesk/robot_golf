@@ -1,50 +1,50 @@
 #!/usr/bin/env ruby
 
-BOARD = 0...5
+B = 0...5
 
 puts (ARGF.read
   .split("\n")
-  .map{ |line| line.split(/[ ,]/) }
-  .drop_while { |command| command.first != "PLACE" }
-  .reduce({x: nil, y: nil, f: nil, out: []}) do |state, call|
-  cmd, *args = call
-  case cmd
+  .map{ |l| l.split(/[ ,]/) }
+  .drop_while { |c| c.first != "PLACE" }
+  .reduce({x: nil, y: nil, f: nil, out: []}) do |s, l|
+  n, *a = l
+  case n
   when "PLACE"
-    x,y,f = args
-    xi = x.to_i
-    yi = y.to_i
-    next state unless BOARD.include?(xi) and BOARD.include?(yi)
-    state.merge({x: xi, y: yi, f: f})
+    x,y,f = a
+    z = x.to_i
+    t = y.to_i
+    next s unless B.include?(z) and B.include?(t)
+    s.merge({x: z, y: t, f: f})
   when "LEFT"
-    state[:f] = {
+    s[:f] = {
       "NORTH" => "WEST",
       "WEST"  => "SOUTH",
       "SOUTH" => "EAST",
       "EAST"  => "NORTH",
-}[state[:f]]
-    state
+}[s[:f]]
+    s
   when "RIGHT"
-    state[:f] = {
+    s[:f] = {
       "NORTH" => "EAST",
       "EAST"  => "SOUTH",
       "SOUTH" => "WEST",
       "WEST"  => "NORTH",
-}[state[:f]]
-    state
+}[s[:f]]
+    s
   when "MOVE"
-    x_offset, y_offset = {
+    z, t = {
       "NORTH" => [+0, +1],
       "SOUTH" => [+0, -1],
       "EAST"  => [+1, +0],
       "WEST"  => [-1, +0],
-}[state[:f]]
-    new_x =state[:x] + x_offset
-    new_y = state[:y] + y_offset
-    next state unless BOARD.include?(new_x) and BOARD.include?(new_y)
-    state.merge({x: new_x, y: new_y})
+}[s[:f]]
+    c =s[:x] + z
+    u = s[:y] + t
+    next s unless B.include?(c) and B.include?(u)
+    s.merge({x: c, y: u})
   when "REPORT"
-    state[:out] << [state[:x], state[:y], state[:f]].join(',')
-    state
+    s[:out] << [s[:x], s[:y], s[:f]].join(',')
+    s
   else
     fail "unknown command"
   end
