@@ -16,7 +16,7 @@ when P
 x,y,f=a
 z=x.to_i
 t=y.to_i
-next s unless B.include?(z)and B.include?(t)
+next s unless B.include?(z)and B.include? t
 s.merge({x:z,y:t,f:f})
 when"LEFT"
 s[:f]={
@@ -43,7 +43,7 @@ W=>[-1,+0],
 }[s[:f]]
 c=s[:x]+z
 u=s[:y]+t
-next s unless B.include?(c)and B.include?(u)
+next s unless B.include?(c)and B.include? u
 s.merge({x:c,y:u})
 when"REPORT"
 s[:out]<<[s[:x],s[:y],s[:f]].join(',')
