@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+watch 'ruby test.rb && wc -c small.rb'
+
