@@ -6,6 +6,7 @@
 # ruby case switch
 # ruby tail
 # ruby return from do block
+$ ruby stdin
 
 BOARD = 0...5
 
