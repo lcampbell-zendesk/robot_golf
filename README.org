@@ -10,7 +10,7 @@
     - [[https://en.wikipedia.org/wiki/Code_golf][Wikipedia]]
   #+end_quote
 
-  Have a look at [[blob/main/small.rb][~small.rb]]~ to see the 632 character solution.
+  Have a look at [[blob/main/small.rb][small.rb]] to see the 632 character solution.
 
 ** Project structure
     
