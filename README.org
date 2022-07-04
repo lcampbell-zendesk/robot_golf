@@ -1,0 +1,41 @@
+* Robot golf
+
+  This is an implementation of the toy robot problem. It's done in Ruby as an
+  example of code golf.
+
+  #+begin_quote
+  Code golf is a type of recreational computer programming competition in which
+  participants strive to achieve the shortest possible source code that solves a
+  certain problem.
+    - [[https://en.wikipedia.org/wiki/Code_golf][Wikipedia]]
+  #+end_quote
+
+** Project structure
+    
+*** ~small.rb~
+
+    This is the final product that gets character counted. It's currently at 632
+    characters. All input is provided via STDIN and output written to STDOUT.
+    
+*** ~main.rb~
+   
+    The main human readable implementation. Any significant changes here will
+    mean overwriting ~small.rb~ and going through the superficial golfing
+    process again. The main logic here is implemented as a function in order to
+    make for easier testing and a more natural code style.
+    
+*** ~a~ , ~b~ , ~c~ , ~d~
+
+    Example input files used for the automated test suite.
+
+*** ~test.rb~
+
+    Full end to end test suite that runs ~small.rb~ as a sub process and asserts
+    against its output to STDOUT.
+    
+*** ~test-and-count~
+
+    A test runner that will run ~test.rb~ and perform a character count every 2
+    seconds. This allows for immediate feedback whenever a change is made. Fast
+    feedback is very helpful as it's easy to introduce very difficult to debug
+    errors.
