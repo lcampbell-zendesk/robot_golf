@@ -1,4 +1,5 @@
-# Things I googled
+# Things I had to google to implement this:
+#
 # ruby heredoc
 # ruby drop
 # ruby throw raise
@@ -7,6 +8,9 @@
 # ruby tail
 # ruby return from do block
 # ruby stdin
+#
+# I've been doing Ruby for 15 years. Don't feel like you're bad at programming
+# because you need to look things up.
 
 BOARD = 0...5
 
