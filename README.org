@@ -10,12 +10,13 @@
     - [[https://en.wikipedia.org/wiki/Code_golf][Wikipedia]]
   #+end_quote
 
+  Have a look at [[blob/main/small.rb][~small.rb]]~ to see the 632 character solution.
+
 ** Project structure
     
 *** ~small.rb~
 
-    This is the final product that gets character counted. It's currently at 632
-    characters. All input is provided via STDIN and output written to STDOUT.
+    This is the final product that gets character counted. All input is provided via STDIN and output written to STDOUT.
     
 *** ~main.rb~
    
